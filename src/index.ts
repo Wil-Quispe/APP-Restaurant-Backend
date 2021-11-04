@@ -1,5 +1,6 @@
 import { GraphQLServer } from 'graphql-yoga'
 import { schema } from './graphql/index'
+import './db'
 
 const options = {
   playground: '/graphql',
