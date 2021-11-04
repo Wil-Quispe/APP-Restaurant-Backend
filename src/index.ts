@@ -2,7 +2,9 @@ import { GraphQLServer } from 'graphql-yoga'
 import { schema } from './graphql/index'
 
 const options = {
-  port: 5000,
+  playground: '/graphql',
+  subscriptions: '/subscriptions',
+  port: process.env.PORT || 5000,
 }
 
 const server = new GraphQLServer({ schema })
