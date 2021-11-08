@@ -1,10 +1,11 @@
-import { GraphQLServer } from 'graphql-yoga'
+import { GraphQLServer, PubSub } from 'graphql-yoga'
 import { schema } from './graphql/index'
 
 import Models from './models'
 import './db'
 
-const context = { Models }
+const pubsub = new PubSub()
+const context = { Models, pubsub }
 
 const options = {
   playground: '/graphql',
