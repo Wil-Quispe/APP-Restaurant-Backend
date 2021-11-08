@@ -1,5 +1,9 @@
 import { ContextType } from '../../interface/common'
-import { newMenuArgsType, OrderMenuArgsType } from '../../interface/mutation'
+import {
+  newMenuArgsType,
+  OrderMenuArgsType,
+  UpdateMenuArgsType,
+} from '../../interface/mutation'
 
 export const Mutation = {
   newMenu: async (
@@ -32,6 +36,30 @@ export const Mutation = {
 
     try {
       await Menu.findByIdAndUpdate({ _id: menuId }, { $inc: { quantity: -1 } })
+
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  },
+
+  updateMenu: async (
+    parent: void,
+    args: UpdateMenuArgsType,
+    context: ContextType,
+  ) => {
+    const { Models } = context
+    const { Menu } = Models
+    const { menuId, ...rest } = args
+
+    try {
+      const res = await Menu.findByIdAndUpdate(
+        { _id: menuId },
+        { ...rest },
+        { new: true },
+      )
+      console.log(res)
 
       return true
     } catch (err) {
