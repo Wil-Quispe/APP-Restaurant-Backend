@@ -31,12 +31,20 @@ export const Mutation = {
     args: OrderMenuArgsType,
     context: ContextType,
   ) => {
-    const { Models } = context
+    const { Models, pubsub } = context
     const { Menu } = Models
     const { menuId } = args
 
     try {
-      await Menu.findByIdAndUpdate({ _id: menuId }, { $inc: { quantity: -1 } })
+      const res = await Menu.findByIdAndUpdate(
+        { _id: menuId },
+        { $inc: { quantity: -1 } },
+        { new: true },
+      )
+
+      pubsub.publish(`menu-${menuId}`, {
+        menu: res.quantity,
+      })
 
       return true
     } catch (err) {
