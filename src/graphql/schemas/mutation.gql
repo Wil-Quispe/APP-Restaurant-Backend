@@ -1,3 +1,4 @@
 type Mutation {
   newMenu(name: String!, price: Int!, quantity: Int!): Boolean!
+  orderMenu(menuId: ID!): Boolean!
 }

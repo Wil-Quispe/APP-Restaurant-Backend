@@ -3,3 +3,7 @@ export interface newMenuArgsType {
   primary: number
   quantity: number
 }
+
+export interface OrderMenuArgsType {
+  menuId: string
+}
