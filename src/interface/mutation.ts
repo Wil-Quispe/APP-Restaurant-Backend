@@ -14,3 +14,7 @@ export interface UpdateMenuArgsType {
   price: number
   quantity: number
 }
+
+export interface DeleteMenuArgsType {
+  menuId: string
+}

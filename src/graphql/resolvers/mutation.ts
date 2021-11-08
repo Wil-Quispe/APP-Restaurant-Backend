@@ -1,5 +1,6 @@
 import { ContextType } from '../../interface/common'
 import {
+  DeleteMenuArgsType,
   newMenuArgsType,
   OrderMenuArgsType,
   UpdateMenuArgsType,
@@ -54,13 +55,25 @@ export const Mutation = {
     const { menuId, ...rest } = args
 
     try {
-      const res = await Menu.findByIdAndUpdate(
-        { _id: menuId },
-        { ...rest },
-        { new: true },
-      )
-      console.log(res)
+      await Menu.findByIdAndUpdate({ _id: menuId }, { ...rest })
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  },
 
+  deleteMenu: async (
+    parent: void,
+    args: DeleteMenuArgsType,
+    context: ContextType,
+  ) => {
+    const { Models } = context
+    const { Menu } = Models
+    const { menuId } = args
+
+    try {
+      await Menu.deleteOne({ _id: menuId })
       return true
     } catch (err) {
       console.log(err)
