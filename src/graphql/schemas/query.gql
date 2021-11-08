@@ -1,3 +1,10 @@
 type Query {
-  hello: String!
+  allMenu: [Menu!]!
+}
+
+type Menu {
+  _id: ID!
+  name: String!
+  price: Int!
+  quantity: Int!
 }
