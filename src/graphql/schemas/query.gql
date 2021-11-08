@@ -1,0 +1,10 @@
+type Query {
+  allMenu: [Menu!]!
+}
+
+type Menu {
+  _id: ID!
+  name: String!
+  price: Int!
+  quantity: Int!
+}

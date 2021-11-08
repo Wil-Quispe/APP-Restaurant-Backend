@@ -1,6 +1,11 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import 'graphql-import-node'
-import Schema from './schemas/schema.gql'
+import Query from './schemas/query.gql'
+import Mutation from './schemas/mutation.gql'
+import Subscription from './schemas/subscription.gql'
 import resolvers from './resolvers/index'
 
-export const schema = makeExecutableSchema({ typeDefs: [Schema], resolvers })
+export const schema = makeExecutableSchema({
+  typeDefs: [Query, Mutation, Subscription],
+  resolvers,
+})
