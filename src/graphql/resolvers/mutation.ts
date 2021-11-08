@@ -1,4 +1,4 @@
-import { ContextType } from '../../interface/common'
+import { ContextType, MenuResType } from '../../interface/common'
 import {
   DeleteMenuArgsType,
   newMenuArgsType,
@@ -36,7 +36,7 @@ export const Mutation = {
     const { menuId } = args
 
     try {
-      const res = await Menu.findByIdAndUpdate(
+      const res: MenuResType = await Menu.findByIdAndUpdate(
         { _id: menuId },
         { $inc: { quantity: -1 } },
         { new: true },
