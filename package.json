@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.ts",
   "license": "MIT",
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "dev": "nodemon src/index.ts --exec ts-node src/index.ts -e gql,ts",
     "build": "tsc -p . && ncp src/graphql/schemas dist/graphql/schemas",
