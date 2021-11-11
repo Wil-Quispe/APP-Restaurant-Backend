@@ -14,6 +14,9 @@ const menuSchema = new Schema(
       type: Number,
       required: true,
     },
+    img: {
+      type: String,
+    },
   },
   { versionKey: false },
 )

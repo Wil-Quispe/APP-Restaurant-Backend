@@ -7,4 +7,5 @@ type Menu {
   name: String!
   price: Int!
   quantity: Int!
+  img: String!
 }
