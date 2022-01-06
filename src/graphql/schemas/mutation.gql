@@ -1,6 +1,19 @@
 type Mutation {
-  newMenu(name: String!, price: Int!, quantity: Int!): Boolean!
+  newMenu(
+    name: String!
+    price: Int!
+    quantity: Int!
+    img: String!
+    type: String!
+  ): Boolean!
   orderMenu(menuId: ID!): Boolean!
-  updateMenu(menuId: ID!, name: String, quantity: Int, price: Int): Boolean!
+  updateMenu(
+    menuId: ID!
+    name: String
+    quantity: Int
+    price: Int
+    img: String
+    type: String
+  ): Boolean!
   deleteMenu(menuId: ID!): Boolean!
 }

@@ -2,6 +2,8 @@ export interface newMenuArgsType {
   name: string
   price: number
   quantity: number
+  img: string
+  type: number
 }
 
 export interface OrderMenuArgsType {
@@ -13,6 +15,8 @@ export interface UpdateMenuArgsType {
   name: string
   price: number
   quantity: number
+  img: string
+  type: number
 }
 
 export interface DeleteMenuArgsType {

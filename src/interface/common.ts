@@ -15,4 +15,6 @@ export interface MenuResType {
   name: string
   price: number
   quantity: number
+  img: string
+  type: number
 }
