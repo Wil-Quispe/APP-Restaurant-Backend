@@ -12,4 +12,18 @@ export const Query = {
       return []
     }
   },
+
+  typeMenu: async (
+    parent: void,
+    { type }: { type: string },
+    context: ContextType,
+  ) => {
+    const { Models } = context
+    const { Menu } = Models
+    try {
+      return Menu.find({ type })
+    } catch (err) {
+      return []
+    }
+  },
 }

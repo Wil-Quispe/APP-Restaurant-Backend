@@ -1,5 +1,6 @@
 type Query {
   allMenu: [Menu!]!
+  typeMenu(type: String!): [Menu!]!
 }
 
 type Menu {
