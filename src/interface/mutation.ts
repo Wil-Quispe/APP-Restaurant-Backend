@@ -28,3 +28,8 @@ export interface SignUpArgsType {
   email: string
   password: string
 }
+
+export interface LoginArgsType {
+  email: string
+  password: string
+}

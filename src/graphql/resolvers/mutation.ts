@@ -1,6 +1,7 @@
 import { ContextType, MenuResType } from '../../interface/common'
 import {
   DeleteMenuArgsType,
+  LoginArgsType,
   newMenuArgsType,
   OrderMenuArgsType,
   SignUpArgsType,
@@ -100,6 +101,33 @@ export const Mutation = {
     } catch (err) {
       console.log(err)
       return false
+    }
+  },
+
+  logIn: async (parent: void, args: LoginArgsType, context: ContextType) => {
+    const { Models } = context
+    const { User } = Models
+    const { email, password } = args
+
+    const admin = {
+      email: 'admin-boss.com',
+      password: 'adminBOSS',
+    }
+
+    try {
+      if (email === admin.email) {
+        if (password === admin.password) return '100'
+        return '00'
+      }
+
+      const emailExist = await User.findOne({ email })
+      if (!emailExist) return '0'
+      if (password !== emailExist.password) return '0'
+
+      return '1'
+    } catch (err) {
+      console.log(err)
+      return '-1'
     }
   },
 }
