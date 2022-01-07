@@ -3,6 +3,7 @@ import {
   DeleteMenuArgsType,
   newMenuArgsType,
   OrderMenuArgsType,
+  SignUpArgsType,
   UpdateMenuArgsType,
 } from '../../interface/mutation'
 
@@ -82,6 +83,19 @@ export const Mutation = {
 
     try {
       await Menu.deleteOne({ _id: menuId })
+      return true
+    } catch (err) {
+      console.log(err)
+      return false
+    }
+  },
+
+  signUp: async (parent: void, args: SignUpArgsType, context: ContextType) => {
+    const { Models } = context
+    const { User } = Models
+    try {
+      const newUser = await User.create({ ...args })
+      newUser.save()
       return true
     } catch (err) {
       console.log(err)

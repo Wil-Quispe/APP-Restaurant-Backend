@@ -22,3 +22,9 @@ export interface UpdateMenuArgsType {
 export interface DeleteMenuArgsType {
   menuId: string
 }
+
+export interface SignUpArgsType {
+  name: string
+  email: string
+  password: string
+}
