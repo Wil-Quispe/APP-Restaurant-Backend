@@ -26,4 +26,16 @@ export const Query = {
       return []
     }
   },
+
+  user: async (parent: void, args: { _id: string }, context: ContextType) => {
+    const { Models } = context
+    const { User } = Models
+    const { _id } = args
+
+    try {
+      return await User.findById(_id)
+    } catch (err) {
+      return false
+    }
+  },
 }
