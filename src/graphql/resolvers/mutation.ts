@@ -97,9 +97,11 @@ export const Mutation = {
     try {
       const newUser = await User.create({ ...args })
       newUser.save()
-      return true
+      return {
+        signUp: true,
+        token: newUser._id,
+      }
     } catch (err) {
-      console.log(err)
       return false
     }
   },
@@ -116,7 +118,11 @@ export const Mutation = {
 
     try {
       if (email === admin.email) {
-        if (password === admin.password) return '100'
+        if (password === admin.password)
+          return {
+            logIn: '100',
+            token: '61e35b063199aa976ec1f009',
+          }
         return '00'
       }
 
@@ -124,7 +130,10 @@ export const Mutation = {
       if (!emailExist) return '0'
       if (password !== emailExist.password) return '0'
 
-      return '1'
+      return {
+        logIn: '1',
+        token: emailExist._id,
+      }
     } catch (err) {
       console.log(err)
       return '-1'

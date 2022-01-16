@@ -16,6 +16,12 @@ type Mutation {
     type: String
   ): Boolean!
   deleteMenu(menuId: ID!): Boolean!
-  signUp(name: String!, email: String!, password: String!): Boolean!
-  logIn(email: String!, password: String!): String!
+  signUp(name: String!, email: String!, password: String!): AuthPayload!
+  logIn(email: String!, password: String!): AuthPayload!
+}
+
+type AuthPayload {
+  signUp: Boolean
+  logIn: String
+  token: String!
 }
