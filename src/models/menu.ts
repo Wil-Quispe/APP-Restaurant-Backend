@@ -17,6 +17,10 @@ const menuSchema = new Schema(
     img: {
       type: String,
     },
+    type: {
+      type: String,
+      required: true,
+    },
   },
   { versionKey: false },
 )

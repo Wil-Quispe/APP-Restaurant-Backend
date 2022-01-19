@@ -1,5 +1,13 @@
 type Query {
   allMenu: [Menu!]!
+  typeMenu(type: String!): [Menu!]!
+  user(_id: ID!): User!
+}
+
+type User {
+  _id: ID!
+  name: String!
+  email: String!
 }
 
 type Menu {
@@ -8,4 +16,5 @@ type Menu {
   price: Int!
   quantity: Int!
   img: String!
+  type: String!
 }

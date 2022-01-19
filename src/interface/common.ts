@@ -1,4 +1,5 @@
 import { PubSub } from 'graphql-yoga'
+import user from '../models/user'
 import menu from '../models/menu'
 
 export interface ContextType {
@@ -8,6 +9,7 @@ export interface ContextType {
 
 interface ModelsType {
   Menu: typeof menu
+  User: typeof user
 }
 
 export interface MenuResType {
@@ -15,4 +17,6 @@ export interface MenuResType {
   name: string
   price: number
   quantity: number
+  img: string
+  type: number
 }
